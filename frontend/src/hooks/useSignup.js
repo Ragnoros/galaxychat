@@ -58,6 +58,7 @@ function handleInputErrors({
   confirmPassword,
   gender,
 }) {
+  const symbols = /[-’/`~!#*$@_%+=.,^&(){}[\]|;:”<>?\\]/g.test(fullName);
   if (!fullName || !username || !password || !confirmPassword || !gender) {
     toast.error("Please fill in all fields.");
     return false;
@@ -72,6 +73,10 @@ function handleInputErrors({
   }
   if (fullName.length > 20) {
     toast.error("Name must be below 20 characters.");
+    return false;
+  }
+  if (symbols) {
+    toast.error("Name must contain letters only");
     return false;
   }
   return true;
