@@ -70,5 +70,9 @@ function handleInputErrors({
     toast.error("Password must be at least 6 characters.");
     return false;
   }
+  if (fullName.length > 20) {
+    toast.error("Name must be below 20 characters.");
+    return false;
+  }
   return true;
 }
