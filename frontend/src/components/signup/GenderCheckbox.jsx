@@ -33,6 +33,21 @@ const GenderCheckbox = ({ onCheckboxChange, selectedGender }) => {
           />
         </label>
       </div>
+      <div className="form-control">
+        <label
+          className={`label gap-2 cursor-pointer ${
+            selectedGender === "female" ? "selected" : ""
+          }`}
+        >
+          <span className="label-text">Prefer not to say</span>
+          <input
+            type="checkbox"
+            className="checkbox border-slate-900"
+            checked={selectedGender === "prefer not to say"}
+            onChange={() => onCheckboxChange("prefer not to say")}
+          />
+        </label>
+      </div>
     </div>
   );
 };
